@@ -12,12 +12,13 @@ class Tela:
         cab = tk.PhotoImage(file="cab.png")
         img = tk.Label(janela, image=cab)
         img.cab = cab
-        img.config(bg="#DCDCDC")
+        img.config(bg="#F2F2F2")
         img.place(x=40, y=1)
 
         
         self.cidade = tk.Label(janela, text="Código UF:")
         self.cidade["font"] = ("Lucida", "17")
+        self.cidade.config(bg="#F2F2F2", foreground="black")
         self.cidade.place(x=50, y=85)
         
         self.cidadeE = tk.Entry(janela)
@@ -26,10 +27,16 @@ class Tela:
         self.cidadeE.place(x=175, y=89, height=25, width=100)
 
         self.bt = tk.Button(janela, text="Consultar")
-        self.bt.place(x=290, y=85, width=100)
+        self.bt.place(x=360, y=85, width=100)
         self.bt["font"] = ("Arial", "13")
         self.bt.config(bg="brown", foreground="white")
         self.bt.bind("<Button-1>", self.consultar)
+
+        self.bt2 = tk.Button(janela, text="Limpar")
+        self.bt2.place(x=285, y=85, width=70)
+        self.bt2["font"] = ("Arial", "13")
+        self.bt2.config(bg="black", foreground="white")
+        self.bt2.bind("<Button-1>", self.limpar)
 
     def consultar(self, event):
 
@@ -44,10 +51,6 @@ class Tela:
         r3=('Quantidade de casos: {}'.format(teste['cases']))
         r4=('Suspeitas: {}'.format(teste['suspects']))
         r5=('Data da atualização: {}'.format(teste['datetime']))
-        
-        
-        
-        
 
         
         self.lb = tk.Label(janela, text=r2)
@@ -73,13 +76,22 @@ class Tela:
         self.lb4["font"] = ("Arial", "15")
         self.lb4.place(x=5, y=355)
 
+    def limpar(self, event):
+
+        self.cidadeE.delete(0, "end")
+        
+        self.lb2 = tk.Label(janela, text="")
+
+       
+
         
 
 janela = tk.Tk()
 Tela(janela)
-janela.config(bg="#DCDCDC")
-
-janela.geometry("450x400")
+janela.config(bg="#F2F2F2")
+janela.resizable(width=False,height=False)
+janela.geometry("470x400")
+janela.title('DADOS COVID-19')
 janela.mainloop()
 
 
