@@ -22,32 +22,11 @@ class Tela:
         self.cidade.config(bg="#F2F2F2", foreground="black")
         self.cidade.place(x=50, y=85)
 
-        lista = ["AC","AL","AP","AM","BA","CE","DF","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"
+        lista = ["AC","AL","AP","AM","BA","CE","DF","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"]
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-]
         self.cidadeE = ttk.Combobox(janela, values=lista)
         self.cidadeE["font"] = ("Lucida", "17")
         self.cidadeE.config(foreground="darkblue")
@@ -73,6 +52,9 @@ class Tela:
     def consultar(self, event):
 
         cd = self.cidadeE.get()
+
+        if len(cd) != 2:
+            exit()
 
         
         
@@ -112,7 +94,10 @@ class Tela:
 
         self.cidadeE.delete(0, "end")
         
-        self.lb2 = tk.Label(janela, text="")
+        self.lb.destroy()
+        self.lb2.destroy()
+        self.lb3.destroy()
+        self.lb4.destroy()
 
        
 
