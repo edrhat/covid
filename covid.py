@@ -1,5 +1,6 @@
 import requests
 import tkinter as tk
+from tkinter import ttk
 #API PARA CONSULTAR O CLIMA
 #api.openweathermap.org/data/2.5/weather?q={city name}&appid=89ad8ce4ebae22808286cec213ed99a5
 #COVID = https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/sp 
@@ -20,11 +21,42 @@ class Tela:
         self.cidade["font"] = ("Lucida", "17")
         self.cidade.config(bg="#F2F2F2", foreground="black")
         self.cidade.place(x=50, y=85)
-        
-        self.cidadeE = tk.Entry(janela)
+
+        lista = ["AC","AL","AP","AM","BA","CE","DF","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]
+        self.cidadeE = ttk.Combobox(janela, values=lista)
         self.cidadeE["font"] = ("Lucida", "17")
         self.cidadeE.config(foreground="darkblue")
         self.cidadeE.place(x=175, y=89, height=25, width=100)
+        
+        #self.cidadeE = tk.Entry(janela)
+        #self.cidadeE["font"] = ("Lucida", "17")
+        #self.cidadeE.config(foreground="darkblue")
+        #self.cidadeE.place(x=175, y=89, height=25, width=100)
 
         self.bt = tk.Button(janela, text="Consultar")
         self.bt.place(x=360, y=85, width=100)
